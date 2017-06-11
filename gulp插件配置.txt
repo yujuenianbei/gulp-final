@@ -1,0 +1,24 @@
+gulp的autoprefixer插件可以根据我们的设置帮助我们自动补全浏览器的前缀(如：-moz、-ms、-webkit、-o)
+
+// 载入外挂
+var gulp = require('gulp'),
+    autoprefixer = require('gulp-autoprefixer');
+
+gulp.task('autopref', function () {
+    //找到src目录下app.css，为其补全浏览器兼容的css
+    gulp.src('css/basic.css')
+        .pipe(autoprefixer({
+            browsers: ['last 5 versions', 'Android >= 4.0'],
+            cascade: true, //是否美化属性值 默认：true 像这样：
+            //-webkit-transform: rotate(45deg);
+            //        transform: rotate(45deg);
+            remove:true //是否去掉不必要的前缀 默认：true
+        }))
+        //输出到dist文件夹
+        .pipe(gulp.dest('dist'));
+});
+
+antoprefixer()函数的参数介绍
+　　　　browsers：[]  （定义使用的浏览器版本）
+　　　　cascade ： true  （定义对属性进行对齐操作）
+　　　　remove : true (去掉不必要的前缀)

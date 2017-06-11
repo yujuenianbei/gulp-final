@@ -1,0 +1,26 @@
+{
+  "name": "gulp-demo",
+  "description": "gulp",
+  "main": "",
+  "authors": [
+    "yujuenianbei"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap":"3.3.7"
+  },
+  "exportsOverride": {
+    "*": {
+      "js": "**/*.js",
+      "css": "**/*.css"
+    }
+  }
+}
