@@ -20,12 +20,16 @@
 
 ## 安装
 
-	npm install
+	npm install / cnpm install
+> 建议使用淘宝镜像
+
+	npm bower / bower update
+> 安装bower插件
 
 ##  使用
 
-	gulp  //测试环境
-	gulp build   //正是发布
+	gulp / npm test  //测试环境
+	gulp build / npm run build  //正是发布
 	gulp clean  //清除缓存
 
 ##  配置
