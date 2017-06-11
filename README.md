@@ -1,18 +1,18 @@
 # 玉珏念北Gulp前端自动化
 
-# Gulp代码检测 (jsHint版)
+## Gulp代码检测 (jsHint版)
 
-# Gulp bower下载插件
+## Gulp bower下载插件
 
-# Gulp 自动监测文件变化 (watch)
+## Gulp 自动监测文件变化 (watch)
 
-# Gulp 代码压缩 (压缩JS、Css、Html)
+## Gulp 代码压缩 (压缩JS、Css、Html)
 
-# Gulp git链接（暂无）
+## Gulp git链接（暂无）
 
-# Gulp 单元测试（暂无）
+## Gulp 单元测试（暂无）
 
-# Gulp自动添加版本号
+## Gulp自动添加版本号
 
 > 基于[gulp-rev](https://github.com/sindresorhus/gulp-rev) + [gulp-rev-collector](https://github.com/shonny-ua/gulp-rev-collector)根据文件MD5值自动添加版本号，提供修改插件改变`xxx-md5.xx`为`xxx.xx?v=md5`方法    
    
