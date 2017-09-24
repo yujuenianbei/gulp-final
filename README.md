@@ -60,10 +60,15 @@
 #### 输出：
 
 	background: url('../img/one.jpg?v=28bd4f6d18');
+
 	src: url('/fonts/icomoon.eot?v=921bbb6f59');
+
 	href="css/main.css?v=885e0e1815"
+
 	src="js/main.js?v=10ba7be289"
+
 	src="img/one.jpg?v=28bd4f6d18"
+	
 	
 
 	
