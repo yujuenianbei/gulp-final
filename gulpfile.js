@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),  //
     bower = require('gulp-bower'), //bower
     uglify = require('gulp-uglify'), //js压缩
-    less = require('gulp-less'),  //less便宜
+    less = require('gulp-less'),  //less编译
     csslint = require('gulp-csslint'), //css代码检测
     rev = require('gulp-rev'), //更换版本号
     minifyCss = require('gulp-minify-css'), //css压缩
@@ -14,7 +14,9 @@ var gulp = require('gulp'),
     minifyHtml = require('gulp-minify-html'), //html代码压缩
     autoprefixer = require('gulp-autoprefixer'), //可以根据我们的设置帮助我们自动补全浏览器的前缀(如：-moz、-ms、-webkit、-o)
     del = require('del'),//node原生删除模块
-    clean = require('gulp-clean') //清空文件夹
+    clean = require('gulp-clean'), //清空文件夹
+    mocha = require('gulp-mocha')  //mocha单元测试
+
 
 
 // src  源文件
@@ -28,9 +30,7 @@ var cssSrc = ['main.less', 'layer-box.less', 'tag.less'],
     imgSrc = 'src/img/*',
     imgDest = 'dist/img',
     cssRevSrc = 'src/css/revCss',
-
     htmlSrc = 'src/*.html',
-
     condition = true;
 
 
@@ -70,7 +70,7 @@ gulp.task('revImg', function(){
 //检测JS
 gulp.task('lintJs', function(){
     return gulp.src(jsSrc)
-        //.pipe(jscs())   //检测JS风格
+        // .pipe(jscs())   //检测JS风格
         .pipe(jshint({
             "undef": false,
             "unused": false
@@ -114,7 +114,7 @@ gulp.task('miniCss', function(){
         .pipe(less())
         .pipe(gulpif(
             condition, minifyCss({
-                compatibility: 'ie7'
+                compatibility: 'ie9'
             })
         ))
         .pipe(rev())
@@ -145,6 +145,15 @@ gulp.task('miniHtml', function () {
         .pipe(gulp.dest('dist'));
 });
 
+
+// mocha单元测试
+gulp.task('mocha', function() {
+    return gulp.src(['./src/test/test.js'], { read: false })
+      .pipe(mocha());
+});
+
+
+
 // bower 插件导出（无废弃文件但是要查找要用的文件）
 gulp.task('bower', function() {
     gulp.src('./bower_components/jquery/dist/*.js')
@@ -157,6 +166,7 @@ gulp.task('bower', function() {
     // 产生垃圾文件
     // return bower('./bower_components').pipe(gulp.dest('js/lib'));
 });
+
 // 本地插件导出（无废弃文件但是要查找要用的文件）
 gulp.task('localjs', function() {
     gulp.src('./src/js/**/*.js')
@@ -185,6 +195,7 @@ gulp.task('watch', ['clean'],function(){
     gulp.watch(htmlSrc,['dev']);
     gulp.watch(fontSrc,['dev']);
     gulp.watch(cssRevSrc,['dev']);
+    gulp.watch(cssRevSrc,['dev']);
 });
 
 //开发构建
@@ -192,7 +203,7 @@ gulp.task('dev', ['clean'],function (done) {
     condition = false;
     runSequence(
          ['watch','revFont', 'revImg'],
-         ['lintJs','localjs','bower'],
+         ['mocha','lintJs','localjs','bower'],
          ['revCollectorCss'],
          ['miniCss', 'miniJs'],
          ['miniHtml', 'delRevCss'],
@@ -202,7 +213,7 @@ gulp.task('dev', ['clean'],function (done) {
 //正式构建
 gulp.task('build', function (done) {
     runSequence(
-         ['clean1','revFont', 'revImg'],
+         ['clean1', 'revFont', 'revImg'],
          ['lintJs'],
          ['revCollectorCss'],
          ['miniCss', 'miniJs','bower'],

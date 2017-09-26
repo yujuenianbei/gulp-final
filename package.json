@@ -1,4 +1,39 @@
 {
+  "name": "gulp-qxy",
+  "version": "0.0.1",
+  "description": "gulp test",
+  "license": "MIT",
+  "repository": "sindresorhus/gulp-mocha",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "365913672@qq.com@qq.com",
+    "url": "www.yujuenianbei.top"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp"
+  },
+  "files": [
+    "index.js",
+    "utils.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "mocha",
+    "test",
+    "testing",
+    "unit",
+    "framework",
+    "runner",
+    "tdd",
+    "bdd",
+    "qunit",
+    "spec",
+    "tap"
+  ],
   "devDependencies": {
     "apache-server-configs": "2.14.0",
     "archiver": "^0.14.3",
@@ -24,9 +59,13 @@
     "jquery": "1.11.3",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.1",
-    "mocha": "^2.2.4",
     "normalize.css": "3.0.3",
-    "run-sequence": "^1.0.2"
+    "run-sequence": "^1.0.2",
+
+    "chai": "^4.1.2",
+    "gulp-mocha": "^4.3.1",
+    "mocha": "^3.5.3",
+    "should": "^13.1.0"
   },
   "engines": {
     "node": ">=0.10.0"

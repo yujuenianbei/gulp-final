@@ -8,11 +8,11 @@
 
 ## Gulp 代码压缩 (压缩JS、Css、Html)
 
+## Gulp 单元测试（基于mocha的单元测试）
+
+## Gulp 自动添加版本号（对文件自动添加版本）
+
 ## Gulp git链接（暂无）
-
-## Gulp 单元测试（暂无）
-
-## Gulp自动添加版本号
 
 > 基于[gulp-rev](https://github.com/sindresorhus/gulp-rev) + [gulp-rev-collector](https://github.com/shonny-ua/gulp-rev-collector)根据文件MD5值自动添加版本号，提供修改插件改变`xxx-md5.xx`为`xxx.xx?v=md5`方法    
    
@@ -29,18 +29,26 @@
 ##  使用
 
 	gulp / npm test  //测试环境
-	gulp build / npm run build  //正是发布
+	gulp build / npm run build  //正式发布
 	gulp clean  //清除缓存
 
 ##  配置
+###  代码压缩	
+	生产/测试环境下  condition = false; 不对js css html压缩
+	正式发布环境下  condition = true; 对js css html压缩
+<p>
+	<a title="CII Best Practices">注意：先运行测试环境才能正式发布</a>
+</p>
 
-### 默认结果(`xxx-md5.xx`)：
+###  文件版本管理
+
+####  默认结果(`xxx-md5.xx`)：
 	
 	"/css/style.css" => "/dist/css/style-1d87bebe.css"    
 	"/js/script1.js" => "/dist/script1-61e0be79.js"    
 	"cdn/image.gif"  => "//cdn8.example.dot/img/image-35c3af8134.gif"
 
-### 高级配置(`xxx.xx?v=md5`):
+#### 高级配置(`xxx.xx?v=md5`):
 
 1. 打开`node_modules\gulp-rev\index.js`
 

@@ -4,6 +4,7 @@
 node_modules/
 dist/
 bower_components/
+src/img/Thumbs.db
 
 npm-debug.log
 

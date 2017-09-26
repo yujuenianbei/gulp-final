@@ -3,9 +3,9 @@ function showMe (name) {
 	alert(name);
 }
 
-showMe('wangpeis000');
+// showMe('wangpeis000');
 
-showMe('wangxsdfsdf111');
+// showMe('wangxsdfsdf111');
 
 console.log('ssxxxsssxxcvfsdfsdf');
 console.log('123123');
